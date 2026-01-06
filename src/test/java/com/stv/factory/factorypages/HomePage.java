@@ -24,8 +24,7 @@ public class HomePage {
     private final WebDriverWait wait;
 
     /**
-     * CTA links appear multiple times on the page,
-     * therefore we store them as a list and click the first available one.
+     * CTA links appear multiple times on the page
      */
     @FindBys({
             @FindBy(xpath = "//a[normalize-space()='Explore WordPress Plans']")
@@ -54,7 +53,7 @@ public class HomePage {
     }
 
     /**
-     * Opens the Home page.
+     * Opens the Home page
      */
     public HomePage open() {
         driver.get(URL);
@@ -70,11 +69,9 @@ public class HomePage {
             wait.until(ExpectedConditions.visibilityOf(acceptCookiesButton));
             if (acceptCookiesButton.isDisplayed()) {
                 acceptCookiesButton.click();
-                // wait until banner disappears so it does not block clicks
                 wait.until(ExpectedConditions.invisibilityOf(cookiesBanner));
             }
         } catch (Exception ignored) {
-            // Cookie banner may not appear – this is fine
         }
         return this;
     }
