@@ -5,21 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class VpsHostingPage {
-
-    private final WebDriver driver;
-    private final WebDriverWait wait;
+public class VpsHostingPage extends BasePage {
 
     @FindBy(css = "h1")
     private WebElement h1;
 
     public VpsHostingPage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
         PageFactory.initElements(driver, this);
         wait.until(ExpectedConditions.visibilityOf(h1));
     }
