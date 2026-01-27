@@ -17,6 +17,7 @@ public abstract class BaseTest {
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--start-maximized");
+        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
 
         driver = new ChromeDriver(options);
 

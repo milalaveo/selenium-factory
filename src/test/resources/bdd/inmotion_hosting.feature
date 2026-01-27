@@ -17,7 +17,8 @@ Feature: InMotion Hosting navigation
       | WordPress | WordPress Host           |
       | VPS       | VPS Web Hosting Services |
 
-  @bug
+  # Disabled: bug fixed in production; keeping scenario for reference.
+  @bug @ignore
   Scenario: Cookie preference center content is present but not visible
     Given I am on the InMotion Hosting home page
     When I open the cookie preferences center

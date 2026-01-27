@@ -13,16 +13,19 @@ Located in `src/test/java/com/stv/factory/factorytests`.
 - Home page -> VPS Hosting: verify H1 is "VPS Web Hosting Services"
 
 ### BDD scenarios (Cucumber)
-Feature file: `src/test/resources/bdd/inmotion_hosting.feature`
+Feature files: `src/test/resources/bdd/inmotion_hosting.feature`, `src/test/resources/bdd/home_login_flow.feature`
 - Scenario: Home -> WordPress Hosting header is correct
 - Scenario Outline: Home -> product page header is correct (WordPress, VPS)
-- Scenario: Cookie preference center content is present but not visible
+- Scenario: Cookie preference center content is present but not visible (now ignored)
+- Scenario: Cart stays empty after invalid login attempt
 
 ## Approach
 - Page Objects in `src/test/java/com/stv/factory/factorypages` encapsulate selectors and actions.
 - Tests read like user flows and assert page H1 text to confirm navigation.
 - Cookies banner is handled via `acceptCookiesIfPresent()` on the Home page.
 - Cucumber scenarios reuse the same Page Objects via step definitions.
+- Login flow uses the header Login link and validates the username field state on the login page.
+- Page load strategy is set to `EAGER` to avoid waiting for all assets to finish loading.
 
 ## How to run
 From the project root (`selenium-factory`):
@@ -34,11 +37,14 @@ From the project root (`selenium-factory`):
   - `mvn -Dtest=RunCucumberTests test`
 - Run only the cookie consent bug scenario:
   - `mvn -Dtest=RunCucumberTests test "-Dcucumber.filter.tags=@bug"`
+- Run only a tagged Cucumber scenario:
+  - `mvn test "-Dcucumber.filter.tags=@only"`
 
 ## Important notes
 - Java 17 is required.
 - Chrome must be installed locally; Selenium Manager provides the driver.
 - Tests are UI-driven and depend on the current site content and selectors.
+- The cookie consent bug scenario is tagged `@ignore` and excluded by default.
 - If a test fails due to UI changes, update the related Page Object first.
 
 ## Project structure
