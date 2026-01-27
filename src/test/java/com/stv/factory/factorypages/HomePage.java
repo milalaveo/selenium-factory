@@ -7,21 +7,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
 
 /**
  * Page Object for InMotion Hosting Home page.
  * Implements Page Object + Page Factory pattern.
  */
-public class HomePage {
+public class HomePage extends BasePage {
 
     private static final String URL = "https://www.inmotionhosting.com/";
-
-    private final WebDriver driver;
-    private final WebDriverWait wait;
 
     /**
      * CTA links appear multiple times on the page
@@ -47,8 +42,7 @@ public class HomePage {
     private WebElement cookiesBanner;
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 
