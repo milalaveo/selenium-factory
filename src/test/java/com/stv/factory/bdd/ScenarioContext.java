@@ -1,5 +1,6 @@
 package com.stv.factory.bdd;
 
+import com.stv.factory.factorypages.CookiePreferencesCenter;
 import com.stv.factory.factorypages.HomePage;
 import com.stv.factory.factorypages.VpsHostingPage;
 import com.stv.factory.factorypages.WordPressHostingPage;
@@ -9,6 +10,7 @@ public class ScenarioContext {
 
     private WebDriver driver;
     private HomePage homePage;
+    private CookiePreferencesCenter cookiePreferencesCenter;
     private WordPressHostingPage wordPressHostingPage;
     private VpsHostingPage vpsHostingPage;
     private String currentPage;
@@ -27,6 +29,14 @@ public class ScenarioContext {
 
     public void setHomePage(HomePage homePage) {
         this.homePage = homePage;
+    }
+
+    public CookiePreferencesCenter getCookiePreferencesCenter() {
+        return cookiePreferencesCenter;
+    }
+
+    public void setCookiePreferencesCenter(CookiePreferencesCenter cookiePreferencesCenter) {
+        this.cookiePreferencesCenter = cookiePreferencesCenter;
     }
 
     public WordPressHostingPage getWordPressHostingPage() {

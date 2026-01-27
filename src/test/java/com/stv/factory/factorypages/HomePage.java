@@ -41,6 +41,9 @@ public class HomePage extends BasePage {
     @FindBy(id = "onetrust-group-container")
     private WebElement cookiesBanner;
 
+    @FindBy(id = "onetrust-pc-btn-handler")
+    private WebElement cookieSettingsButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -68,6 +71,14 @@ public class HomePage extends BasePage {
         } catch (Exception ignored) {
         }
         return this;
+    }
+
+    /**
+     * Opens the OneTrust Privacy Preference Center from the cookie banner.
+     */
+    public CookiePreferencesCenter openCookiePreferencesCenter() {
+        wait.until(ExpectedConditions.elementToBeClickable(cookieSettingsButton)).click();
+        return new CookiePreferencesCenter(driver);
     }
 
     /**

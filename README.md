@@ -16,6 +16,7 @@ Located in `src/test/java/com/stv/factory/factorytests`.
 Feature file: `src/test/resources/bdd/inmotion_hosting.feature`
 - Scenario: Home -> WordPress Hosting header is correct
 - Scenario Outline: Home -> product page header is correct (WordPress, VPS)
+- Scenario: Cookie preference center content is present but not visible
 
 ## Approach
 - Page Objects in `src/test/java/com/stv/factory/factorypages` encapsulate selectors and actions.
@@ -31,6 +32,8 @@ From the project root (`selenium-factory`):
   - `mvn -Dtest=InMotionSmokeFactoryTests test`
 - Run only Cucumber BDD tests:
   - `mvn -Dtest=RunCucumberTests test`
+- Run only the cookie consent bug scenario:
+  - `mvn -Dtest=RunCucumberTests test "-Dcucumber.filter.tags=@bug"`
 
 ## Important notes
 - Java 17 is required.
