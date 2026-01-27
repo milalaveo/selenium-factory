@@ -20,6 +20,7 @@ public class BddHooks {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
+        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);
 
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));

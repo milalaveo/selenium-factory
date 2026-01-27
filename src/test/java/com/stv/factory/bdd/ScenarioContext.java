@@ -2,6 +2,7 @@ package com.stv.factory.bdd;
 
 import com.stv.factory.factorypages.CookiePreferencesCenter;
 import com.stv.factory.factorypages.HomePage;
+import com.stv.factory.factorypages.LoginPage;
 import com.stv.factory.factorypages.VpsHostingPage;
 import com.stv.factory.factorypages.WordPressHostingPage;
 import org.openqa.selenium.WebDriver;
@@ -13,7 +14,9 @@ public class ScenarioContext {
     private CookiePreferencesCenter cookiePreferencesCenter;
     private WordPressHostingPage wordPressHostingPage;
     private VpsHostingPage vpsHostingPage;
+    private LoginPage loginPage;
     private String currentPage;
+    private String loginPageUrl;
 
     public WebDriver getDriver() {
         return driver;
@@ -55,11 +58,27 @@ public class ScenarioContext {
         this.vpsHostingPage = vpsHostingPage;
     }
 
+    public LoginPage getLoginPage() {
+        return loginPage;
+    }
+
+    public void setLoginPage(LoginPage loginPage) {
+        this.loginPage = loginPage;
+    }
+
     public String getCurrentPage() {
         return currentPage;
     }
 
     public void setCurrentPage(String currentPage) {
         this.currentPage = currentPage;
+    }
+
+    public String getLoginPageUrl() {
+        return loginPageUrl;
+    }
+
+    public void setLoginPageUrl(String loginPageUrl) {
+        this.loginPageUrl = loginPageUrl;
     }
 }

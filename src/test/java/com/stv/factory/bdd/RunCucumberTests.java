@@ -12,6 +12,7 @@ import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 @IncludeEngines("cucumber")
 @SelectClasspathResource("bdd")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "com.stv.factory.bdd")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty")
+@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/cucumber-report.html")
+@ConfigurationParameter(key = "cucumber.filter.tags", value = "not @ignore")
 public class RunCucumberTests {
 }
